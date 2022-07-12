@@ -1,38 +1,23 @@
 #include "main.h"
 /**
- * _strlen - Swap the value of two integers
- * @s: Set of characters
+ * string_toupper - changes all lowercase letters of a string to uppercase
  *
- * Return: Nothing
-*/
-int _strlen(char *s)
-{
-	int i = 0;
+ * @z: letters to check
+ * Return: uppercase letters
+ */
 
-	while (*(s + i) != '\0')
+char *string_toupper(char *z)
+{
+	int i;
+
+	for (i = 0; z[i] != '\0'; i++)
 	{
-		i++;
+		if (z[i] >= 97 && z[i] <= 122)
+			z[i] -= 32;
 	}
-	return (i);
+
+	return (z);
 }
-
-/**
- * rev_string - Reverse a string
- * @s: Set of characters
- *
- * Return: Nothing
-*/
-
-void rev_string(char *s)
-{
-	int len = _strlen(s);
-	int i = len;
-	char s_rev[1000];
-	int j = 0;
-	int k;
-
-	while (i > 0)
-	{
 		i--;
 		s_rev[j] = *(s + i);
 		j++;
