@@ -1,30 +1,33 @@
-#include "main.h"
+#include "holberton.h"
 
 /**
-  * _strncat - Concatenates two strings
+  * _strncpy - Copy a string
   * @dest: The destination value
   * @src: The source value
-  * @n: The limit of the concatenation
+  * @n: The copy limit
   *
-  * Return: A pointer to the resulting string dest
+  * Return: char value
   */
-char *_strncat(char *dest, char *src, int n)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int dlen = 0, j = 0;
+	int a = 0, b = 0;
 
-	while (dest[dlen])
+	while (src[b])
 	{
-		dlen++;
+		b++;
 	}
 
-	while (j < n && src[j])
+	while (a < n && src[a])
 	{
-		dest[dlen] = src[j];
-		dlen++;
-		j++;
+		dest[a] = src[a];
+		a++;
 	}
 
-	dest[dlen + n + 1] = '\0';
+	while (a < n)
+	{
+		dest[a] = '\0';
+		a++;
+	}
 
 	return (dest);
 }
