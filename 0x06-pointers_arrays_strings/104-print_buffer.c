@@ -1,41 +1,50 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
-  * print_number - Prints any integer with putchar
-  * @n: Number to prints
-  *
-  * Return: Nothing
-  */
-void print_number(int n)
+ * print_buffer - prints buffer
+ * @b: buffer
+ * @size: size
+ * Return: void
+ */
+
+void print_buffer(char *b, int size)
 {
-	unsigned int x;
+	int o, j, i;
 
-	if (n < 0)
-	{
-		_putchar('-');
-		n *= -1;
-	}
-
-	x = n;
-
-	if (x / 10)
-		print_number(x / 10);
-
-	_putchar(x % 10 + '0');
-}
-				 *(b + i + x) <= 126)
-				printf("%c", *(b + i + x));
-
-			else
-				printf(".");
-		}
-
-		if (x >= size)
-			continue;
-
-		printf("\n");
-	}
+	o = 0;
 
 	if (size <= 0)
+	{
 		printf("\n");
+		return;
+	}
+	while (o < size)
+	{
+		j = size - o < 10 ? size - o : 10;
+		printf("%08x: ", o);
+		for (i = 0; i < 10; i++)
+		{
+			if (i < j)
+				printf("%02x", *(b + o + i));
+			else
+				printf("  ");
+			if (i % 2)
+			{
+				printf(" ");
+			}
+		}
+		for (i = 0; i < j; i++)
+		{
+			int c = *(b + o + i);
+
+			if (c < 32 || c > 132)
+			{
+				c = '.';
+			}
+			printf("%c", c);
+		}
+		printf("\n");
+		o += 10;
+	}
 }
