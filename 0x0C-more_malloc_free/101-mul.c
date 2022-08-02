@@ -1,4 +1,7 @@
-#include "main.h"
+#include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * adding_all_mul - sum all the addition to know the multiplication result
